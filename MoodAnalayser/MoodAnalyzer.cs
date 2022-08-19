@@ -30,7 +30,7 @@ namespace MoodAnalyzerProblem
             }
             else
             {
-                throw new MoodAnalyserException("Getting null or empty value");
+                return "Happy";
             }
             
         }

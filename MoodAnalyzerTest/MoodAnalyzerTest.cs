@@ -32,23 +32,9 @@ namespace MoodAnalyzerTest
                 Console.WriteLine(e.Message);
             }
         }
+     
         [TestMethod]
-        public void WhenGivenHappyMessage_shouldReturnEmpty ()
-        {
-            MoodAnalyzer mood = new MoodAnalyzer("");
-            try
-            {
-                string message = mood.AnalyseMood();
-                Assert.AreEqual("Happy", message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        [TestMethod]
-        public void WhenGivenHappyMessage_shouldReturnNull()
+        public void WhenGivenNull_ShouldReturnHappy()
         {
             MoodAnalyzer mood = new MoodAnalyzer(null);
             try
