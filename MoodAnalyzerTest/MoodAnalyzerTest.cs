@@ -1,3 +1,4 @@
+using MoodAnalayser;
 using MoodAnalyzerProblem;
 namespace MoodAnalyzerTest
 {
@@ -44,9 +45,26 @@ namespace MoodAnalyzerTest
             }
             catch (Exception e)
             {
+                throw new MoodAnalyserException("Getting null or empty value");
+            }
+        }
+
+        [TestMethod]
+        public void WhenGivenHappyEmptyMsg_shouldReturnEmpty()
+        {
+            string exp = "";
+            MoodAnalyzer mood = new MoodAnalyzer(exp);
+            try
+            {
+                string message = mood.AnalyseMood();
+                Assert.AreEqual(exp, message);
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.Message);
             }
         }
+
 
     }
 }
