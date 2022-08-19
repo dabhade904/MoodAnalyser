@@ -7,9 +7,10 @@ namespace MoodAnalyzerTest
         [TestMethod]
         public void WhenGivenSadMessage_shouldReturnSad()
         {
+            MoodAnalyzer mood = new MoodAnalyzer("i am sad");
             try
             {
-                string message = MoodAnalyzer.AnalyseMood("i am sad");
+                string message = mood.AnalyseMood();
                 Assert.AreEqual("Sad", message);
             }
             catch (Exception e)
@@ -20,9 +21,10 @@ namespace MoodAnalyzerTest
         [TestMethod]
         public void WhenGivenHappyMessage_shouldReturnHappy()
         {
+            MoodAnalyzer mood = new MoodAnalyzer("i am in any Mood");
             try
             {
-                string message = MoodAnalyzer.AnalyseMood("i am in any Mood");
+                string message = mood.AnalyseMood();
                 Assert.AreEqual("Happy", message);
             }
             catch (Exception e)
