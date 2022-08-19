@@ -8,6 +8,16 @@ namespace MoodAnalyzerProblem
 {
     public  class MoodAnalyzer
     {
-        
+        public static string AnalyseMood(string message)
+        {
+            if (message.Contains("Sad") || message.Contains("sad"))
+            {
+                return "Sad";
+            }
+            else
+            {
+                return "Happy";
+            }
+        }
     }
 }
