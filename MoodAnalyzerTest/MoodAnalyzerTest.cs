@@ -17,6 +17,19 @@ namespace MoodAnalyzerTest
                 Console.WriteLine(e.Message);
             }
         }
+        [TestMethod]
+        public void WhenGivenHappyMessage_shouldReturnHappy()
+        {
+            try
+            {
+                string message = MoodAnalyzer.AnalyseMood("i am in any Mood");
+                Assert.AreEqual("Happy", message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
 
     }
 }
