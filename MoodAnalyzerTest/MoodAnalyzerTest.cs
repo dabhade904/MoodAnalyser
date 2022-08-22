@@ -144,5 +144,13 @@ namespace MoodAnalyzerTest
                 Console.WriteLine(e.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenHappyShouldReturnHappy()
+        {
+            string expected = "Happy";
+            string mood = MoodAnalayserFactory.InvokedAnalyseMood("Happy", "AnalyseMood");
+            Assert.AreEqual(expected, mood);
+        }
     }
 }
