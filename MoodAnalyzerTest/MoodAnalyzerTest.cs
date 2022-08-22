@@ -101,7 +101,7 @@ namespace MoodAnalyzerTest
             }
         }
         [TestMethod]
-        public void Given_MoodAnalyser_Class_Name_Should_Return_MoodAnalyser_Object_Using_Parameeterized_ConstrctrutorImproper()
+        public void Given_MoodAnalyser_Class_Name_Should_Return_MoodAnalyser_Object_Using_Parameeterized_Constrctrutor()
         {
             try
             {
