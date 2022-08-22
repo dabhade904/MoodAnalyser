@@ -1,4 +1,3 @@
-using MoodAnalayser;
 using MoodAnalyzerProblem;
 namespace MoodAnalyzerTest
 {
@@ -45,7 +44,7 @@ namespace MoodAnalyzerTest
             }
             catch (MoodAnalyserException e)
             {
-                Console.WriteLine("Mood should not be null",e.Message);
+                Console.WriteLine("Mood should not be null", e.Message);
             }
         }
 
