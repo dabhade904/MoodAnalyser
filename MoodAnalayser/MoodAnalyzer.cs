@@ -1,4 +1,4 @@
-﻿using MoodAnalayser;
+﻿using MoodAnalyzerProblem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,11 @@ namespace MoodAnalyzerProblem
     public class MoodAnalyzer
     {
         private string message;
+
+        public MoodAnalyzer()
+        {
+        }
+
         public MoodAnalyzer(string message)
         {
             this.message = message;
