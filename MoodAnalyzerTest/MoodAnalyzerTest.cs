@@ -69,5 +69,36 @@ namespace MoodAnalyzerTest
             object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
             expected.Equals(obj);
         }
+
+        [TestMethod]
+        public void Given_MoodAnalyser_ClassName_ImproperShould_Throw_MoodAnalyserException()
+        {
+            try
+            {
+                object expected = new MoodAnalyzer();
+                object obj = MoodAnalayserFactory.CreateMoodAnalyse("erMoodAnalyzerProblem.MoodAnalys", "MoodAnalyzer");
+                expected.Equals(obj);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+        [TestMethod]
+        public void Given_MoodAnalyser_Method_Name_Improper_Should_Throw_MoodAnalyserExceptio()
+        {
+            try
+            {
+                object expected = new MoodAnalyzer();
+                object obj = MoodAnalayserFactory.CreateMoodAnalyse("erMoodAnalyzerProblem.MoodAr", "Mood");
+                expected.Equals(obj);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
