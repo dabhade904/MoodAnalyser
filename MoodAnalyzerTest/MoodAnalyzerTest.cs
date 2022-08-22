@@ -66,7 +66,7 @@ namespace MoodAnalyzerTest
         public void Given_MoodAnalyser_ClassName_Should_Return_MoodAnalyser_Object()
         {
             object expected = new MoodAnalyzer();
-            object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
+            object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer","");
             expected.Equals(obj);
         }
 
@@ -76,7 +76,7 @@ namespace MoodAnalyzerTest
             try
             {
                 object expected = new MoodAnalyzer();
-                object obj = MoodAnalayserFactory.CreateMoodAnalyse("erMoodAnalyzerProblem.MoodAnalys", "MoodAnalyzer");
+                object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalys", "MoodAnalyzer","");
                 expected.Equals(obj);
             }
             catch (Exception e)
@@ -92,7 +92,7 @@ namespace MoodAnalyzerTest
             try
             {
                 object expected = new MoodAnalyzer();
-                object obj = MoodAnalayserFactory.CreateMoodAnalyse("erMoodAnalyzerProblem.MoodAr", "Mood");
+                object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAr", "Mood","");
                 expected.Equals(obj);
             }
             catch (Exception e)
