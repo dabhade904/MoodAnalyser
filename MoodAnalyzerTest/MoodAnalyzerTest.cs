@@ -62,5 +62,12 @@ namespace MoodAnalyzerTest
                 Console.WriteLine("Mood should not be Empty", e.Message);
             }
         }
+        [TestMethod]
+        public void Given_MoodAnalyser_ClassName_Should_Return_MoodAnalyser_Object()
+        {
+            object expected = new MoodAnalyzer();
+            object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
+            expected.Equals(obj);
+        }
     }
 }
