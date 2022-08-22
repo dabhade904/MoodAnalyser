@@ -5,30 +5,31 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalayserFactory
     {
-        public static string InvokedAnalyseMood(string message,string methodName)
+        public static string? InvokedAnalyseMood(string message, string methodName)
         {
             try
             {
                 Type type = Type.GetType("MoodAnalyzerProblem.MoodAnalyzer");
-                object moodAnalyseObject = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer",message);
+                object moodAnalyseObject = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer", message);
                 MethodInfo analyseMoodInfo = type.GetMethod(methodName);
-                object mood=analyseMoodInfo.Invoke(moodAnalyseObject,null);
+                object mood = analyseMoodInfo.Invoke(moodAnalyseObject, null);
                 return mood.ToString();
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Method is not found");
+                MoodAnalyserException exp = new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Method is not found");
+                return exp.Message;
             }
         }
-        public static object CreateMoodAnalyse(string className, string constructorName,string message)
+        public static object CreateMoodAnalyse(string className, string constructorName, string message)
         {
             Type type = typeof(MoodAnalyzer);
-            if(type.Name.Equals(className)|| type.FullName.Equals(className))
+            if (type.Name.Equals(className) || type.FullName.Equals(className))
             {
                 if (type.Name.Equals(constructorName))
                 {
                     ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
-                    object instance=ctor.Invoke(new object[] { message });
+                    object instance = ctor.Invoke(new object[] { message });
                     return instance;
                 }
                 else
