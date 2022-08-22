@@ -13,18 +13,18 @@ namespace MoodAnalyzerProblem
             {
                 try
                 {
-                    Assembly executting =Assembly.GetExecutingAssembly();  
-                    Type moodAnaylseType= executting.GetType(className);
+                    Assembly executting = Assembly.GetExecutingAssembly();
+                    Type moodAnaylseType = executting.GetType(className);
                     return Activator.CreateInstance(moodAnaylseType);
                 }
-                catch(ArgumentNullException)
+                catch (ArgumentNullException)
                 {
-                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_CLASS,"Class Not Found");
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_CLASS, "Class Not Found");
                 }
             }
             else
             {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Class Not Found");
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Contructor is Not Found");
             }
         }
     }
