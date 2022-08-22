@@ -33,38 +33,5 @@ namespace MoodAnalyzerTest
                 Console.WriteLine(e.Message);
             }
         }
-     
-        [TestMethod]
-        public void WhenGivenNull_ShouldReturnHappy()
-        {
-            MoodAnalyzer mood = new MoodAnalyzer(null);
-            try
-            {
-                string message = mood.AnalyseMood();
-                Assert.AreEqual("Happy", message);
-            }
-            catch (Exception e)
-            {
-                throw new MoodAnalyserException("Getting null or empty value");
-            }
-        }
-
-        [TestMethod]
-        public void WhenGivenHappyEmptyMsg_shouldReturnEmpty()
-        {
-            string exp = "";
-            MoodAnalyzer mood = new MoodAnalyzer(exp);
-            try
-            {
-                string message = mood.AnalyseMood();
-                Assert.AreEqual(exp, message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-
     }
 }
