@@ -5,6 +5,24 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalayserFactory
     {
+        public static string InvokedAnalyseMood(string message,string methodName)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyzerProblem.MoodAnalyzer");
+                object moodAnalyseObject = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer", "Happy");
+                MethodInfo analyseMoodInfo = type.GetMethod(methodName);
+                object mood=analyseMoodInfo.Invoke(moodAnalyseObject,null);
+                return mood.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Method is not found");
+            }
+            {
+
+            }
+        }
         public static object CreateMoodAnalyse(string className, string constructorName,string message)
         {
             Type type = typeof(MoodAnalyzer);
@@ -18,6 +36,7 @@ namespace MoodAnalyzerProblem
                 }
                 else
                 {
+
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "Contructor is Not Found");
                 }
             }
