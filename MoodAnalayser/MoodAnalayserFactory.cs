@@ -5,15 +5,15 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalayserFactory
     {
-        public static object CreateMoodAnalyse(string className, string constructorName)
+        public static object CreateMoodAnalyse(string className, string constructorName,string message)
         {
             Type type = typeof(MoodAnalyzer);
-            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            if(type.Name.Equals(className)|| type.FullName.Equals(className))
             {
                 if (type.Name.Equals(constructorName))
                 {
                     ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
-                    object instance = ctor.Invoke(new object[] { "Happy" });
+                    object instance=ctor.Invoke(new object[] { message });
                     return instance;
                 }
                 else

@@ -100,5 +100,19 @@ namespace MoodAnalyzerTest
                 Console.WriteLine(e.Message);
             }
         }
+        [TestMethod]
+        public void Given_MoodAnalyser_Class_Name_Should_Return_MoodAnalyser_Object_Using_Parameeterized_ConstrctrutorImproper()
+        {
+            try
+            {
+                object expected = new MoodAnalyzer("Happy");
+                object obj = MoodAnalayserFactory.CreateMoodAnalyse("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer", "Happy");
+                expected.Equals(obj);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
